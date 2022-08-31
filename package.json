@@ -23,7 +23,8 @@
   "main": "app.js",
   "devDependencies": {}, "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js -e hbs,js,css"
+    "dev": "nodemon app.js -e hbs,js,css",
+    "seed": "node ./seeds/seed.js"
   },
   "repository": {
     "type": "git",
