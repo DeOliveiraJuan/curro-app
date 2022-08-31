@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Varibales de Colores */
+:root {
+    --main-color: #2B6173;
+    --secondary-color: #E8F569;
+    --gray-color: #bcbcbc;
+    --gray-light-color: #F8F8F8;
+    --gray-secondary-color: #dddddd;
+    --gray-dark-color: #171717;
+    --yellow-color: #FCE1AA;
+    --green-color: #CCF0C0;
+    --blue-color:#BAE5F4;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: var(--gray-light-color);
+}
+main {
+    padding: 0.8rem;
+}
+
+
+.logo {
+    color:black;
+    font-size: 1.3rem;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+.home-background {
+    width: auto;
+    height: 100vh;
+    background: linear-gradient(180deg, #265565 0%, #288FB1 47.92%, #265565 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.home-background .message {
+    color: white;
+    position: absolute;
+    bottom: 0%;
+    margin: 10px 10px;
+    text-align: center;
+}
+
+.access {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.home-background .message h1 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    text-align: center;
+    letter-spacing: 0.006em;   
+}
+
+.home-background .message p {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.0008em;
+    color: #F9FBF9;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: var(--main-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0.5rem;
+    padding: 0.7rem 4rem;
+}
+
+.btn-secondary {
+    background: var(--main-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0.5rem;
+    padding: 0.7rem 4rem;
+}
+
+.btn-apply {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-color);
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--gray-dark-color)
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: var(--gray-light-color);
+    border-radius: 12px;
+}
+
+.profile {
+    width: 24px;
+}
+
+.greeting {
+    margin: 1rem; 
+}
+
+.greeting h1 {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-color);
+    margin-top: 36px;
+}
+
+.greeting p {
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.006em;   
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-offer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.card-offer-logo img {
+    width: 70px;
+    height: 70px;
+}
+
+.card-offer-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.card-offer-title {
+    margin-left: 10px;
+}
+
+.card-offer-fav {
+    position:absolute;
+    right: 0;
+}
+
+.card-offer-fav svg {
+    width: 24px;
+}
+
+.card-offer h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: 0.006em;   
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-dark-color);
+    margin-bottom: 8px;
+}
+.card-offer p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.card-offer p svg {
+    width: 20px;
+}
+
+.card-offer-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.card-offer-footer div span {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--gray-light-color);
+    padding: 2px 6px;
+    border-radius: 12px;
+}
+
+.applyButton {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: white;
+    padding: 1rem 0;
+}
+
+.card-offer-detail-head{
+    background-color: var(--gray-secondary-color);
+    border-radius: 12px;
+    align-items: flex-start;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.card-offer-detail-head-logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card-offer-detail-head-logo img{
+    width: 100px;
+    height: 100px;
+    margin-top: -50px
+}
+
+.card-offer-detail-body{
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-offer-detail-body h2 {
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 18px;
+    letter-spacing: 0.006em;   
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-dark-color);
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.card-offer-detail-body p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-dark-color);
+    opacity: 0.7;
+}
+
+.offer-data {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-icon-salary{
+    background-color: var(--yellow-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-icon-contract{
+    background-color: var(--green-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-icon-hours{
+    background-color: var(--blue-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-icon {
+    width: 24px;
+}
+
+.box-title {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-dark-color);
+    opacity: 0.5;
+}
+
+.box-subtitle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--gray-dark-color);
+}
+
+
+.offer-detail {
+    margin-top: 40px;
+}
+
+.offer-detail P {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.006em;
+    color: var(--gray-dark-color);
+    margin-top: 20px;
+}
