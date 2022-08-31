@@ -57,6 +57,6 @@ companySchema.methods.checkPassword = function(password) {
     return bcrypt.compare(password, company.password);
 }
 
-const Company = mongoose.model('Compamy', companySchema);
+const Company = mongoose.model('Company', companySchema);
 
 module.exports = Company;

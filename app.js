@@ -18,9 +18,9 @@ hbs.registerPartials(__dirname + '/views/partials'); // Indicamos donde están l
 const routes = require('./config/routes.config'); // Requerimos el contenido de Routes
 app.use(routes); // Usamos el routes 
 
-app.use((req, res, next) => {
-    next(console.log('404'));
-})
+app.use((err, req, res, next) => {
+    res.render("error", { err });
+  });
 
 const port = Number(process.env.PORT || 3000);
 
