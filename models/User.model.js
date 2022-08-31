@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const { user } = require('../controllers/userProfile.controller');
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -20,10 +19,6 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: [true, 'Introduce tu fecha de nacimiento']
     },
-    phoneNumber: {
-        type: String,
-        required: [true, 'El número de teléfono es obligatorio']
-    },
     email: {
         type: String,
         required: [true, 'El email es necesario'],
@@ -34,6 +29,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria'],
         match: [PASSWORD_PATTERN, 'La contraseña es inválida'],
+    },
+    phoneNumber: {
+        type: String,
+        required: [true, 'Introduce tu número de teléfono']
     },
     image: {
         type: String,

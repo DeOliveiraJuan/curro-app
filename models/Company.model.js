@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const { company } = require('../controllers/companyProfile.controller');
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -22,18 +21,18 @@ const companySchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: [true, 'El número de teléfono es obligatorio']
+        required: [true, 'El número de teléfono es requerido']
     },
     email: {
         type: String,
-        required: [true, 'El email es necesario'],
+        required: [true, 'El email es requerido'],
         unique: true,
         match: [EMAIL_PATTERN, 'El formato de email es invalido'],
     },
     password: {
         type: String,
-        required: [true, 'Password is required'],
-        match: [PASSWORD_PATTERN, 'Password is not valid'],
+        required: [true, 'Introduce la contraseña'],
+        match: [PASSWORD_PATTERN, 'Formato de contraseña inválido'],
     }
 })
 
