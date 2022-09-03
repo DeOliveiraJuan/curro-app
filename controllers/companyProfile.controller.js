@@ -14,10 +14,10 @@ module.exports.register = (req, res, next) => {
 }
 
 module.exports.doRegister = (req, res, next) => {
-    const { name, legalName, nif, phoneNumber, email, password } = req.body;
-
-    console.log(req.body)
-    const company = new Company({ name, legalName, nif, phoneNumber, email, password });
+    const { name, legalName, nif, phoneNumber, email } = req.body;
+    const image = req.file.path
+    const user = locals.user._id
+    const company = new Company({ name, legalName, nif, phoneNumber, email, image, user });
     company.save()
         .then(() => {
             res.redirect('/company/register');

@@ -17,10 +17,16 @@ app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials'); // Indicamos donde están los partials.
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 const routes = require('./config/routes.config'); // Requerimos el contenido de Routes
 app.use(routes); // Usamos el routes 
 
 app.use((err, req, res, next) => {
+  console.log(err);
   res.render("error", { err });
 });
 

@@ -7,6 +7,7 @@ const companiesController = require('../controllers/companyProfile.controller');
 const usersController = require('../controllers/userProfile.controller');
 const authController = require('../controllers/auth.controller');
 const authMiddleware = require('../middlewares/authMiddleware');
+const fileUpload = require("../config/cloudinary.config")
 
 const SCOPES = [
   "profile",
@@ -20,7 +21,7 @@ router.get('/register', authController.register);
 router.post('/register', authController.doRegister);
 router.get('/login', authMiddleware.isNotAuthenticated, authController.login);
 router.post('/login', authController.doLogin);
-router.get('/login/google', passport.authenticate('gogle-auth', { scope: SCOPES }));
+router.get('/login/google', passport.authenticate('google-auth', { scope: SCOPES }));
 router.get('/auth/google/callback', authController.doLoginGoogle);
 router.get('/logout', authController.logout);
 
@@ -33,7 +34,7 @@ router.get('/offer/detail/:id', offerController.detail);
 
 //Company routes
 router.get('/company/register', companiesController.register);
-router.post('/company/register', companiesController.doRegister);
+router.post('/company/register', fileUpload.single("image"), companiesController.doRegister);
 
 
 module.exports = router

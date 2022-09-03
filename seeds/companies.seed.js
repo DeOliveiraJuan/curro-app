@@ -1,5 +1,6 @@
 const companies = [
   {
+    user: '6313395705ccfbc9bc5f48cf',
     name: "El jardín de Julian",
     legalName: "El jardín de Julian, S.L.",
     nif: "B88345230",
@@ -8,6 +9,7 @@ const companies = [
 
   },
   {
+    user: '6313395705ccfbc9bc5f48cf',
     name: "Bar Chupao",
     legalName: "El negocio de Marcos, S.L.",
     nif: "B87345233",
@@ -16,6 +18,7 @@ const companies = [
 
   },
   {
+    user: '6313395705ccfbc9bc5f48cf',
     name: "El mariachí feliz",
     legalName: "Nahum Group, S.L.U.",
     nif: "B89304562",

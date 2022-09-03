@@ -1,15 +1,22 @@
 <main>
     {{> navbar }}
     <div>
-        <form method="POST" action="/company/register">
+        <form method="POST" action="/company/register" enctype='multipart/form-data'>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Comercial</label>
             <input class="form-control" type="text" name="name" placeholder="Name" required>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Legal</label>
             <input class="form-control" type="text" name="legalName" placeholder="legalName" required>
+            <label for="staticEmail" class="col-sm-2 col-form-label">NIF</label>
             <input class="form-control" type="text" name="nif" placeholder="nif" required>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Teléfono</label>
             <input class="form-control" type="text" name="phoneNumber" placeholder="phoneNumber" required>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
             <input class="form-control" type="text" name="email" placeholder="email" required>
-            <input class="form-control" type="password" name="password" placeholder="password" required>
-            <input class="form-control" type="password" name="passwordConfirm" placeholder="passwordConfirm" required>
-            <button type="submit" class="btn btn-primary">Registrar Mi Empresa</button>
+            <label for="staticEmail" class="col-sm-2 col-form-label">Logo de la Empresa</label>
+            <input type="file" name="image" class="form-control-file">
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Registrar Empresa</button>
+            </div>
         </form>
     </div>
 </main>
