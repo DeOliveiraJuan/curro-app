@@ -2,28 +2,30 @@ const User = require('../models/User.model');
 const mongoose = require('mongoose'); 
 const passport = require('passport');
 
+
 module.exports.register = (req, res, next) => {
     res.render('auth/register');
 };
 
 module.exports.doRegister = (req, res, next) => {
     const user = req.body;
-
+    
     const renderWithErrors = (errors) => {
-        res.render("auth/register", { errors, user });
+        res.render('auth/register', { errors, user });
       };
     
       User.findOne({ email: user.email })
         .then((userFound) => {
           if (userFound) {
-            renderWithErrors("El email ya está registrado");
+            renderWithErrors("El email ya está registrado"); 
           } else {
             return User.create(user)
             .then((userCreated) => {
-              res.redirect("/profile");
+              res.redirect('/profile');
             });
           }
         })
+
         .catch((err) => {
           if (err instanceof mongoose.Error.ValidationError) {
             renderWithErrors(err.errors)
@@ -34,6 +36,7 @@ module.exports.doRegister = (req, res, next) => {
 }
 
 const login = (req, res, next, provider) => {
+  console.log("Esta entrando aca")
     passport.authenticate(provider || 'local-auth', (err, user, validations) => {
       if (err) {
         next(err)

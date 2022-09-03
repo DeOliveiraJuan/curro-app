@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     },
     birthday: {
         type: Date,
-        required: [true, 'Introduce tu fecha de nacimiento']
     },
     email: {
         type: String,
@@ -32,7 +31,6 @@ const userSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: [true, 'Introduce tu número de teléfono']
     },
     image: {
         type: String,
