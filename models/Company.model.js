@@ -31,6 +31,10 @@ const companySchema = new mongoose.Schema({
         unique: true,
         match: [EMAIL_PATTERN, 'El formato de email es invalido'],
     },
+    image: {
+        type: String,
+        default: 'https://res.cloudinary.com/juandeoliveira/image/upload/v1662195340/curroapp/user-image-default_t5uzxf.png'
+    }
 })
 
 const Company = mongoose.model('Company', companySchema);
