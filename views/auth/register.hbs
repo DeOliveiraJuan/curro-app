@@ -9,7 +9,7 @@
           type="text"
           name="name"
           class="custom-form-control form-control py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}"
-          placeholder="Name"
+          placeholder="Nombre"
           aria-label="User name"
           value="{{ user.name }}"
         >
@@ -19,9 +19,21 @@
       <div class="input-group mb-2">
         <input
           type="text"
+          name="lastName"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.lastName}}is-invalid{{/if}}"
+          placeholder="Apellido"
+          aria-label="User last name"
+          value="{{ user.lastName }}"
+        >
+        {{#if errors.lastName}}<div class="invalid-feedback">{{ errors.lastName }}</div>{{/if}}
+      </div>
+
+      <div class="input-group mb-2">
+        <input
+          type="text"
           name="email"
           class="custom-form-control form-control py-2 ps-4 {{#if errors.email}}is-invalid{{/if}}"
-          placeholder="Email: user@example.org"
+          placeholder="usuario@ejemplo.com"
           aria-label="User email"
           value="{{ user.email }}"
         >
@@ -34,7 +46,7 @@
           type="password"
           name="password"
           class="custom-form-control form-control py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}"
-          placeholder="Password"
+          placeholder="Contraseña"
           aria-label="User password"
         >
         <button class="btn btn-outline-secondary password-toggle c-dark" type="button">
@@ -43,12 +55,22 @@
         {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
       </div>
 
+      <div class="form-check">
+         <input class="form-check-input" type="radio" name="isCompany" id="isCompany1" value="false" checked>
+         <label class="form-check-label" for="isCompany1"> Soy candidato </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="isCompany" id="isCompany2" value="true">
+        <label class="form-check-label" for="isCompany2"> Soy empresa </label>
+      </div>
+
       <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary bg-light-green border-0">Register</button>
+        <button type="submit" class="btn btn-primary bg-light-green border-0">Registrarse</button>
         <div class="d-grid gap-2 mt-2">
           <a href="/login/google" class="btn btn-danger border-0">
             <i class="fa fa-google"></i>
-            Register with Google
+            Registrarse con Google
           </a>
         </div>
       </div>
