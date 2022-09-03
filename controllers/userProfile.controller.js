@@ -1,6 +1,6 @@
 const User = require('../models/User.model');
 
-module.exports.user = (req, res, next) => {
+module.exports.userProfile = (req, res, next) => {
     res.render('user/profile');
 }
 
