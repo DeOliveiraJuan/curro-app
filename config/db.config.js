@@ -16,20 +16,11 @@ mongoose
         process.exit(0)
     });
 
-<<<<<<< HEAD
-    process.on("SIGINT", function () {
-        mongoose.connection.close(function () {
-            console.log("Mongoose disconnected on app termination")
-            process.exit(0)
-        });
-    });
-
-    module.exports.DB = MONGODB_URI;
-=======
 process.on("SIGINT", function () {
     mongoose.connection.close(function () {
         console.log("Mongoose disconnected on app termination")
         process.exit(0)
-    })
-})
->>>>>>> featured/registerCompany
+    });
+});
+
+module.exports.DB = MONGODB_URI;
