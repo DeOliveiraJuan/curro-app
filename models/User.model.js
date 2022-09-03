@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const EMAIL_PATTERN =
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^.{8,}$/i;
 const SALT_ROUNDS = 10;
 
@@ -41,6 +41,11 @@ const userSchema = new mongoose.Schema({
     googleID: {
         type: String
     },
+    isCompany: {
+        type: Boolean,
+        default: false,
+        required: [true, 'Obligatorio']
+    }
 })
 
 userSchema.pre('save', function (next) {
@@ -59,7 +64,7 @@ userSchema.pre('save', function (next) {
     }
 })
 
-userSchema.methods.checkPassword = function(password) {
+userSchema.methods.checkPassword = function (password) {
     const user = this;
     return bcrypt.compare(password, user.password);
 }

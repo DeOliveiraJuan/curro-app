@@ -9,9 +9,9 @@ const authController = require('../controllers/auth.controller');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 const SCOPES = [
-    "profile",
-    "email"
-  ]
+  "profile",
+  "email"
+]
 
 router.get('/', miscController.home);
 
@@ -32,6 +32,9 @@ router.get('/offer/feed', offerController.feed);
 router.get('/offer/detail/:id', offerController.detail);
 
 //Company routes
-router.get('/company/register', companiesController.register);
+router.get('/company/register', companyController.register);
+router.post('/company/register', companyController.doRegister);
 
-module.exports = router;
+
+module.exports = router
+

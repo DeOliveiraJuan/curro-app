@@ -1,1 +1,15 @@
-<h1>Hola</h1>
+<main>
+    {{> navbarCompany }}
+    <div>
+        <form method="POST" action="/company/register">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="legalName" placeholder="legalName" required>
+            <input type="text" name="nif" placeholder="nif" required>
+            <input type="text" name="phoneNumber" placeholder="phoneNumber" required>
+            <input type="text" name="email" placeholder="email" required>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="password" name="passwordConfirm" placeholder="passwordConfirm" required>
+            <button type="submit">Registrar Mi Empresa</button>
+        </form>
+    </div>
+</main>

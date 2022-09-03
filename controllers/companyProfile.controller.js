@@ -12,3 +12,17 @@ module.exports.offers = (req, res, next) => {
 module.exports.register = (req, res, next) => {
     res.render('company/register');
 }
+
+module.exports.doRegister = (req, res, next) => {
+    const { name, legalName, nif, phoneNumber, email, password } = req.body;
+
+    console.log(req.body)
+    const company = new Company({ name, legalName, nif, phoneNumber, email, password });
+    company.save()
+        .then(() => {
+            res.redirect('/company/register');
+        }).catch(err => {
+            console.log(err);
+        }
+        );
+}

@@ -4,10 +4,12 @@ const express = require('express');
 const hbs = require('hbs');
 const logger = require('morgan')
 
+require('./config/db.config');
+
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 
 app.set('views', __dirname + '/views');
@@ -19,11 +21,11 @@ const routes = require('./config/routes.config'); // Requerimos el contenido de 
 app.use(routes); // Usamos el routes 
 
 app.use((err, req, res, next) => {
-    res.render("error", { err });
-  });
+  res.render("error", { err });
+});
 
-const port = Number(process.env.PORT || 3000);
+const port = Number(process.env.PORT || 3000);
 
 app.listen(port, () => {
-    console.log('Listening on port ' + port);
+  console.log('Listening on port ' + port);
 });
