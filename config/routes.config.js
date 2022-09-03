@@ -12,6 +12,8 @@ router.get('/offer/detail/:id', offerController.detail);
 
 //Company routes
 router.get('/company/register', companyController.register);
+router.post('/company/register', companyController.doRegister);
 
 
 module.exports = router
+
