@@ -37,5 +37,9 @@ router.get('/company/register', companiesController.register);
 router.post('/company/register', fileUpload.single("image"), companiesController.doRegister);
 
 
+//Favorite Routes
+router.post('/offer/favorite', offerController.favorite);
+
+
 module.exports = router
 

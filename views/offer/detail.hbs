@@ -2,12 +2,11 @@
     {{> navbar }}
     <div class="card-offer-detail-head">
         <div class="card-offer-detail-head-logo">
-            <img src="https://img2.freepng.es/20180625/ic/kisspng-hamburger-goiko-grill-restaurant-barbecue-food-maquinaria-5b308aa1e60df1.5612160915299078739423.jpg"
-                alt="">
+            <img src="{{offer.company.image}}" alt="{{offer.company.name}}">
         </div>
         <div class="card-offer-detail-body">
-            <h2> Jefe de Cocina</h2>
-            <p>Goiko Grill</p>
+            <h2> {{offer.jobTitle}}</h2>
+            <p>{{offer.company.name}}</p>
         </div>
     </div>
 
@@ -22,7 +21,7 @@
 
             </div>
             <p class="box-title">Salario</p>
-            <p class="box-subtitle">60€/hora</p>
+            <p class="box-subtitle">{{offer.salary}}€/hora</p>
         </div>
         <div class="box">
             <div class="box-icon-contract">
@@ -33,7 +32,7 @@
                 </svg>
             </div>
             <p class="box-title">Contrato</p>
-            <p class="box-subtitle">Indefinido</p>
+            <p class="box-subtitle">{{offer.contractType}}</p>
         </div>
         <div class="box">
             <div class="box-icon-hours">
@@ -44,51 +43,13 @@
                 </svg>
             </div>
             <p class="box-title">Jornada</p>
-            <p class="box-subtitle">Completa</p>
+            <p class="box-subtitle">{{offer.jobType }}</p>
         </div>
     </div>
     <div class="offer-detail">
         <h3>Descripción</h3>
         <p>
-            JFC Innovation es una startup con un equipo internacional que quiere tener un impacto global. Estamos
-            construyendo una plataforma que facilita el alquiler de motos eléctricas. Con nuestro servicio, los viajeros
-            tienen una mayor movilidad en la ciudad que visitan y además es sostenible. Por eso, buscamos a una persona
-            que nos ayude a dar a conocer nuestra empresa en el mundo digital.
-
-            Descripción del empleo
-
-            JFC Innovation busca un becario para su departamento de marketing digital. Con nosotros tendrás la
-            oportunidad de formar parte de una startup jóven y dinámica. Después de habernos expandido con éxito en
-            diversos países de Europa, ahora estamos buscando a alguien como tú para que formes parte de nuestro equipo
-            en España.
-
-            Se trata de una oportunidad única e inigualable de participar en la creación de una nueva marca en una de
-            las compañías de mayor crecimiento a nivel Europeo.
-
-            Responsabilidades
-
-            Ayudar a elaborar una estrategia de comunicación para llegar a los clientes, principalmente a través de la
-            web.
-            Identificar y contactar a socios potenciales clave tales como agencias de viajes, blogs, medios sociales,
-            sitios web y organizadores de eventos.
-            Entender las necesidades de nuestros clientes y dar soluciones.
-            Gestionar y organizar eventos de la empresa.
-            Analizar los resultados a través de herramientas como Google Analytics
-            Ofrecemos
-
-            Jornada a tiempo parcial (a elegir entre mañanas o tardes)
-            Salario fijo: 500€ + ayuda para el transporte (hasta 150€)
-            Formación en el sector de marketing digital
-            Ambiente laboral sano y orientado hacia el bienestar y desarrollo profesional de cada uno de los integrantes
-            de la empresa
-            Posibilidad de crecer dentro de la empresa
-            Requisitos
-
-            Estudiante de publicidad/ marketing/ ADE
-            Posibilidad de establecer un convenio con la universidad
-            Se valorará el conocimiento de herramientas tales como Google Analytics y Adwords.
-            Persona joven, dinámica, organizada y responsable con tolerancia a la frustración.
-            Si crees que encajas con el perfil y quieres trabajar con nosotros, ¡solicita esta oferta!
+            {{offer.description }}
         </p>
     </div>
     <div class="applyButton">

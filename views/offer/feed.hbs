@@ -25,7 +25,7 @@
                     {{offer.salary }}€/hora
                 </p>
             </div>
-            <div class="card-offer-fav">
+            <div class="card-offer-fav" onclick="favorite('{{ offer._id }}')">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -37,13 +37,27 @@
         <div class="card-offer-footer">
             <div>
                 <span>{{offer.jobType }}</span>
-                <span>{{contractType}}</span>
+                <span>{{offer.contractType}}</span>
             </div>
             <a href="/offer/detail/{{offer._id}}" class="btn-apply">
-                Aplicar
+                Más Info
             </a>
         </div>
     </div>
     {{/each }}
 
 </main>
+
+<script>
+    function favorite(id) {
+        axios.post('/offer/favorite', {
+            offer: id,
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+</script>
