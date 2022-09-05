@@ -54,11 +54,10 @@ passport.use('google-auth', new GoogleStrategy(
     callbackURL: '/auth/google/callback'
   },
   (accessToken, refreshToken, profile, next) => {
-    console.log({ profile });
-
     const googleID = profile.id;
     const email = profile.emails[0] ? profile.emails[0].value : undefined;
-    const name = profile.displayName;
+    const name = profile.name.givenName;
+    const lastName = profile.name.familyName;
     const image = profile.photos[0].value;
 
     if (googleID && email) {
@@ -71,17 +70,24 @@ passport.use('google-auth', new GoogleStrategy(
         .then(user => {
           if (user) {
             next(null, user);
+            return;
           }
           return User.create({
             email,
             googleID,
             password: mongoose.Types.ObjectId(),
             name,
+            lastName,
             image
-          });
+          })
+          .then(createdUser => {
+            next(null, createdUser);
+          })
         })
-        .then(createdUser => next(null, createdUser))
-        .catch(err => next(err))
+        .catch(err => {
+          console.log(err);
+          next(err);
+        })
     } else {
       next(null, false, { error: 'Error connecting to Google Auth' })
     }
