@@ -1,9 +1,10 @@
 <nav class="navbar navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         {{#if user.isCompany}}
-        <a href="/offer/feed" class="navbar-brand">CurroApp</a>
-        {{else}}
         <a href="/company/offers" class="navbar-brand">CurroApp</a>
+        {{else}}
+
+        <a href="/offer/feed" class="navbar-brand">CurroApp</a>
         {{/if}}
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar">
@@ -23,17 +24,18 @@
                     </li>
                     {{#if user.isCompany}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/offer/feed">Ofertas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/offer/favorite">Ofertas Favoritas</a>
-                    </li>
-                    {{else}}
-                    <li class="nav-item">
                         <a class="nav-link" href="/company/list">Mis Empresas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/company/offers">Mis Ofertas Publicadas</a>
+                    </li>
+
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/offer/feed">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/offer/favorite">Ofertas Favoritas</a>
                     </li>
 
                     {{/if}}
