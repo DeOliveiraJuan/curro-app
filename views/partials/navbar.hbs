@@ -1,19 +1,57 @@
-<div class="nav">
-    <div class="nav-left">
+<nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
         {{#if user.isCompany}}
-        <a href="/offer/feed" class="logo">CurroApp</a>
+        <a href="/offer/feed" class="navbar-brand">CurroApp</a>
         {{else}}
-        <a href="/company/offers" class="logo">CurroApp</a>
+        <a href="/company/offers" class="navbar-brand">CurroApp</a>
         {{/if}}
-    </div>
-    <div class="nav-right">
-        <a href="/profile">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                stroke="currentColor" class="profile">
-                <path strokeLinecap="round" strokeLinejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">CurroApp</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    {{#if user.isCompany}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/offer/feed">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/offer/favorite">Ofertas Favoritas</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/company/list">Mis Empresas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/company/offers">Mis Ofertas Publicadas</a>
+                    </li>
 
-        </a>
+                    {{/if}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Mi Cuenta
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/profile">Mi perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
+</nav>

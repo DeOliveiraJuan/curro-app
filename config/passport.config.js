@@ -58,7 +58,8 @@ passport.use('google-auth', new GoogleStrategy(
 
     const googleID = profile.id;
     const email = profile.emails[0] ? profile.emails[0].value : undefined;
-    const name = profile.displayName;
+    const name = profile.name.givenName;
+    const lastName = profile.name.familyName;
     const image = profile.photos[0].value;
 
     if (googleID && email) {
@@ -77,6 +78,7 @@ passport.use('google-auth', new GoogleStrategy(
             googleID,
             password: mongoose.Types.ObjectId(),
             name,
+            lastName,
             image
           });
         })

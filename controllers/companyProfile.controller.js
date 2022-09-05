@@ -5,10 +5,6 @@ module.exports.company = (req, res, next) => {
     res.render('company/profile', { user: req.user });
 }
 
-module.exports.offers = (req, res, next) => {
-    res.render('company/offers', { user: req.user });
-}
-
 module.exports.register = (req, res, next) => {
     res.render('company/register', { user: req.user });
 }
@@ -25,4 +21,13 @@ module.exports.doRegister = (req, res, next) => {
             console.log(err);
         }
         );
+}
+
+module.exports.offers = (req, res, next) => {
+    user = req.user;
+    CompanyOffer.find({ user: user._id }).populate('company')
+        .then((offers) => {
+            return res.render("company/offers", { offers, user });
+        })
+        .catch((err) => next(err))
 }
