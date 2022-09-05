@@ -2,15 +2,15 @@ const Company = require('../models/Company.model');
 const CompanyOffer = require('../models/CompanyOffer.model')
 
 module.exports.company = (req, res, next) => {
-    res.render('company/profile');
+    res.render('company/profile', { user: req.user });
 }
 
 module.exports.offers = (req, res, next) => {
-    res.render('company/offers');
+    res.render('company/offers', { user: req.user });
 }
 
 module.exports.register = (req, res, next) => {
-    res.render('company/register');
+    res.render('company/register', { user: req.user });
 }
 
 module.exports.doRegister = (req, res, next) => {
