@@ -1,0 +1,14 @@
+<main>
+    {{>navbar }}
+    <div class="container">
+        {{#each companies as |company|}}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{company.name}}</h5>
+                <p class="card-text">{{company.legalName}}</p>
+                <a href="/company/{{company._id}}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</main>

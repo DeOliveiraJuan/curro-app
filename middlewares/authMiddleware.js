@@ -23,9 +23,10 @@ module.exports.isCompany = (req, res, next) => {
 };
 
 module.exports.isNotCompany = (req, res, next) => {
-  if (!req.session.currentUser.isCompany) {
-    next();
-  } else {
+  if (req.session.currentUser.isCompany) {
     res.redirect("/company/offers");
+  } else {
+    next();
+
   }
 };
