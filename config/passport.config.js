@@ -85,7 +85,6 @@ passport.use('google-auth', new GoogleStrategy(
           })
         })
         .catch(err => {
-          console.log(err);
           next(err);
         })
     } else {

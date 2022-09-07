@@ -37,7 +37,6 @@ module.exports.doRegister = (req, res, next) => {
 
 const login = (req, res, next, provider) => {
   passport.authenticate(provider || 'local-auth', (err, user, validations) => {
-
     if (err) {
       next(err)
     } else if (!user) {
@@ -68,5 +67,5 @@ module.exports.doLoginGoogle = (req, res, next) => {
 
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
-  res.redirect("/login");
+  res.redirect('/login');
 };
