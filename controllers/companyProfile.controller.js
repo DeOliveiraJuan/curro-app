@@ -31,3 +31,12 @@ module.exports.offers = (req, res, next) => {
         })
         .catch((err) => next(err))
 }
+
+
+module.exports.list = (req, res, next) => {
+    user = req.user;
+    Company.find({ user: user._id }).then((companies) => {
+        console.log(companies)
+        res.render("company/list", { companies, user: req.user });
+    })
+}

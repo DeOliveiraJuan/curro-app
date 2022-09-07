@@ -1,6 +1,7 @@
 const Offers = require('../models/CompanyOffer.model')
 const Favorite = require('../models/Favorite.model')
 
+
 module.exports.feed = (req, res, next) => {
     Offers.find().populate('company')
         .then((offers) => {
@@ -35,3 +36,6 @@ module.exports.favorite = (req, res, next) => {
         .catch((err) => next(err))
 
 }
+
+
+

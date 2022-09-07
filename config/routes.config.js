@@ -38,6 +38,7 @@ router.get('/company/register', authMiddlewares.isAuthenticated, authMiddlewares
 router.post('/company/register', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, fileUpload.single("image"), companiesController.doRegister);
 
 router.get('/company/offers', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.offers);
+router.get('/company/list', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.list);
 
 //Favorite Routes
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);
