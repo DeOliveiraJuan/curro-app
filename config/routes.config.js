@@ -28,6 +28,8 @@ router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 
 //User routes
 router.get('/profile', authMiddlewares.isAuthenticated, usersController.userProfile);
+router.get('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
+router.get('/profile/experience', authMiddlewares.isAuthenticated, usersController.userProfileExperience);
 
 //Offer routes
 router.get('/offer/feed', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.feed);

@@ -68,10 +68,12 @@ passport.use('google-auth', new GoogleStrategy(
         ]
       })
         .then(user => {
+          console.log('>>> user ', user);
           if (user) {
             next(null, user);
             return;
           }
+          console.log('>>> NO user ', user);
           return User.create({
             email,
             googleID,
@@ -81,13 +83,16 @@ passport.use('google-auth', new GoogleStrategy(
             image
           })
           .then(createdUser => {
+            console.log('>>> User.create ', createdUser);
             next(null, createdUser);
           })
         })
         .catch(err => {
+          console.log('>>> User.findOne catch ', err);
           next(err);
         })
     } else {
+      console.log('>>> else de googleID && email');
       next(null, false, { error: 'Error connecting to Google Auth' })
     }
   }
