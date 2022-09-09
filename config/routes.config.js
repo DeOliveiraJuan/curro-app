@@ -27,8 +27,9 @@ router.get('/auth/google/callback', authMiddlewares.isNotAuthenticated, authCont
 router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 
 //User routes
-router.get('/profile', authMiddlewares.isAuthenticated, usersController.userProfile);
+router.get('/profile', authMiddlewares.isAuthenticated, usersController.register);
 router.get('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
+router.post('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
 router.get('/profile/experience', authMiddlewares.isAuthenticated, usersController.userProfileExperience);
 
 //Offer routes

@@ -31,6 +31,5 @@ module.exports.isNotCompany = (req, res, next) => {
     res.redirect("/company/offers");
   } else {
     next();
-
   }
 };
