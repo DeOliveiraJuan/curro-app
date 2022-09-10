@@ -1,12 +1,19 @@
 const mongoose = require('mongoose');
 
-const userExperienceSchema = new mongoose.Schema({
-   
-    companyName: {
+const userEducationSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    institutionName: {
         type: String,
         required: [true, 'Introduce el nombre de la empresa']
     },
-    jobTitle: {
+    typeOfStudy: {
+        type: String,
+        required: [true, 'Introduce el nombre de la posición']
+    },
+    fieldOfStudy: {
         type: String,
         required: [true, 'Introduce el nombre de la posición']
     },
@@ -17,12 +24,9 @@ const userExperienceSchema = new mongoose.Schema({
     endDate: {
         type: Date,
         required: [true, 'Introduce la fecha de culminación']
-    },
-    description: {
-        type: String,
     }
 })
 
-const UserExperience = mongoose.model('UserExperience', userExperienceSchema);
+const UserEducation = mongoose.model('UserEducation', userEducationSchema);
 
-module.exports = UserExperience;
+module.exports = UserEducation;

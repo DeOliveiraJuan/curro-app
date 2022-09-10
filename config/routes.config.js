@@ -28,9 +28,9 @@ router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 
 //User routes
 router.get('/profile', authMiddlewares.isAuthenticated, usersController.register);
-router.get('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
-router.post('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
-router.get('/profile/experience', authMiddlewares.isAuthenticated, usersController.userProfileExperience);
+router.get('/user/education', authMiddlewares.isAuthenticated, usersController.userEducation);
+router.post('/user/education', authMiddlewares.isAuthenticated, usersController.doRegisterEducation);
+router.get('/user/experience', authMiddlewares.isAuthenticated, usersController.userExperience);
 
 //Offer routes
 router.get('/offer/feed', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.feed);
