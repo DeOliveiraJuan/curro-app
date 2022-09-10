@@ -28,8 +28,8 @@ router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 
 //User routes
 router.get('/profile', authMiddlewares.isAuthenticated, usersController.register);
-router.get('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
-router.post('/profile/education', authMiddlewares.isAuthenticated, usersController.userProfileEducation);
+router.get('/user/education', authMiddlewares.isAuthenticated, usersController.registerEducation);
+router.post('/user/education', authMiddlewares.isAuthenticated, usersController.doRegisterEducation);
 router.get('/profile/experience', authMiddlewares.isAuthenticated, usersController.userProfileExperience);
 
 //Offer routes
