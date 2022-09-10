@@ -1,17 +1,13 @@
-{{> navbar }}
+{{>navbar }}
 <main>
-    <div class="greeting">
-        <h1>
-            Bienvenido
-        </h1>
-        <p>{{ user.name }}</p>
-    </div>
-    {{#each offers as |offer| }}
+
+    Mi Empresa:
+    {{ company.name }}
+
+    Mis Ofertas:
+    {{#each company.companyOffers as |offer| }}
     <div class="card-offer">
         <div class="card-offer-body">
-            <div class="card-offer-logo">
-                <img src="{{offer.company.image}}" alt="{{offer.company.name}}">
-            </div>
             <div class="card-offer-title">
                 <h2>
                     {{offer.jobTitle}}
@@ -25,39 +21,16 @@
                     {{offer.salary }}€/hora
                 </p>
             </div>
-            <div class="card-offer-fav" onclick="favorite('{{ offer._id }}')">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
-                </svg>
-
-            </div>
         </div>
         <div class="card-offer-footer">
             <div>
                 <span>{{offer.jobType }}</span>
                 <span>{{offer.contractType}}</span>
             </div>
-            <a href="/offer/detail/{{offer._id}}" class="btn-apply">
-                Más Info
+            <a href="/company/detail/{{offer._id}}" class="btn-apply">
+                Ver Inscripciones
             </a>
         </div>
     </div>
     {{/each }}
-
 </main>
-
-<script>
-    function favorite(id) {
-        axios.post('/offer/favorite', {
-            offer: id,
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-</script>

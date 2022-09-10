@@ -39,6 +39,9 @@ router.post('/company/register', authMiddlewares.isAuthenticated, authMiddleware
 
 router.get('/company/offers', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.offers);
 router.get('/company/list', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.list);
+router.get('/company/create', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.create);
+router.post('/company/create', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.doCreate);
+router.get('/company/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewCompany);
 
 //Favorite Routes
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);
