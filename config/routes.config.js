@@ -35,6 +35,7 @@ router.get('/profile/experience', authMiddlewares.isAuthenticated, usersControll
 //Offer routes
 router.get('/offer/feed', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.feed);
 router.get('/offer/detail/:id', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.detail);
+router.delete('/company/offer/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, offerController.delete);
 
 //Company routes
 router.get('/company/register', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.register);
@@ -42,6 +43,15 @@ router.post('/company/register', authMiddlewares.isAuthenticated, authMiddleware
 
 router.get('/company/offers', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.offers);
 router.get('/company/list', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.list);
+router.get('/company/offer/create', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.create);
+router.post('/company/offer/create', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.doCreate);
+router.get('/company/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewCompany);
+router.get('/company/offer/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewCompany);
+
+router.get('/company/offer/detail/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewOffer);
+
+
+
 
 //Favorite Routes
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);

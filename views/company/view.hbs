@@ -1,0 +1,41 @@
+{{>navbar }}
+<main>
+    <h3>
+        {{ company.name }}
+    </h3>
+    <hr>
+    <div class="d-flex justify-content-between align-items-center ">
+        <h4>Mis Ofertas</h4>
+        <a href="/company/offer/create" class="btn btn-primary">+</a>
+    </div>
+    {{#each company.companyOffers as |offer| }}
+    <div class="card-offer">
+        <div class="card-offer-body">
+            <div class="card-offer-title">
+                <h2>
+                    {{offer.jobTitle}}
+                </h2>
+                <p>
+                    <svg id="delete-alt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line"
+                        width="24" height="24">
+                        <path id="primary"
+                            d="M4,7H20M16,7V4a1,1,0,0,0-1-1H9A1,1,0,0,0,8,4V7M18,20V7H6V20a1,1,0,0,0,1,1H17A1,1,0,0,0,18,20Zm-8-9v6m4-6v6"
+                            style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                        </path>
+                    </svg>
+                    {{offer.salary }}€/hora
+                </p>
+            </div>
+        </div>
+        <div class="card-offer-footer">
+            <div>
+                <span>{{offer.jobType }}</span>
+                <span>{{offer.contractType}}</span>
+            </div>
+            <a href="/company/detail/{{offer._id}}" class="btn-apply">
+                Ver Inscripciones
+            </a>
+        </div>
+    </div>
+    {{/each }}
+</main>

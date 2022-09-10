@@ -19,7 +19,7 @@ module.exports.isAuthenticated = (req, res, next) => {
 };
 
 module.exports.isCompany = (req, res, next) => {
-  if (req.session.currentUser.isCompany) {
+  if (res.locals.currentUser.isCompany) {
     next();
   } else {
     res.redirect("/offer/feed");
@@ -27,9 +27,9 @@ module.exports.isCompany = (req, res, next) => {
 };
 
 module.exports.isNotCompany = (req, res, next) => {
-  if (req.session.currentUser.isCompany) {
+  if (res.locals.currentUser.isCompany) {
     res.redirect("/company/offers");
   } else {
-    next();
+    next()
   }
 };

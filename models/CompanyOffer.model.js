@@ -16,7 +16,6 @@ const companyOfferSchema = new mongoose.Schema({
     },
     jobType: { // Partial o full time
         type: String,
-        enum: ['Tiempo completo', 'Tiempo parcial'],
         default: 'Tiempo completo'
     },
     contractType: { // undefined, temporal, etc...

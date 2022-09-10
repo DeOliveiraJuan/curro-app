@@ -35,7 +35,17 @@ const companySchema = new mongoose.Schema({
         type: String,
         default: 'https://res.cloudinary.com/juandeoliveira/image/upload/v1662195340/curroapp/user-image-default_t5uzxf.png'
     }
+}, {
+    toObject: {
+        virtuals: true
+    }
 })
+
+companySchema.virtual('companyOffers', {
+    ref: 'CompanyOffer',
+    localField: '_id',
+    foreignField: 'company'
+});
 
 const Company = mongoose.model('Company', companySchema);
 
