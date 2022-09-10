@@ -52,9 +52,29 @@
             {{offer.description }}
         </p>
     </div>
-    <div class="applyButton">
-        <a class="btn-primary">
-            Aplicar a esta oferta
-        </a>
-    </div>
+    <div class="mt-4">
+        <h3>Candidatos</h3>
+        <div class="card-offer">
+            <div class="card-offer-body">
+                <div class="card-offer-logo">
+                    <img src="{{user.image}}" alt="{{user.name}}">
+                </div>
+                <div class="card-offer-title">
+                    <h2>
+                        Julian David Osorio Feria
+                    </h2>
+                    <div class="">
+                        <p>
+                            jdosoriof@icloud.com <br>672141507
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-offer-footer d-flex justify-content-end">
+                <a href="/profile/public/{{company._id}}" class="btn-apply">
+                    Más información
+                </a>
+            </div>
+        </div>
+
 </main>

@@ -241,7 +241,7 @@ main {
 }
 
 .card-offer-detail-head{
-    background-color: var(--gray-secondary-color);
+    background-color: white;
     border-radius: 12px;
     align-items: flex-start;
     margin-top: 50px;
@@ -294,6 +294,9 @@ main {
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
+    background-color: white;
+    padding: 1rem 0 0 0;
+    border-radius: 12px;
 }
 .box {
     display: flex;
@@ -358,7 +361,10 @@ main {
 
 
 .offer-detail {
-    margin-top: 40px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 12px;
 }
 
 .offer-detail P {
