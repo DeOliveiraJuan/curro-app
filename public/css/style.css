@@ -6,7 +6,7 @@
     --secondary-color: #E8F569;
     --gray-color: #bcbcbc;
     --gray-light-color: #F8F8F8;
-    --gray-secondary-color: #dddddd;
+    --gray-secondary-color: #eee;
     --gray-dark-color: #171717;
     --yellow-color: #FCE1AA;
     --green-color: #CCF0C0;
@@ -21,10 +21,10 @@
 }
 
 body {
-    background: var(--gray-light-color);
+    background: var(--gray-secondary-color) !important;
 }
 main {
-    padding: 0rem;
+    padding: 1rem;
 }
 
 

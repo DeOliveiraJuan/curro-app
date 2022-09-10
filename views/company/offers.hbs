@@ -1,8 +1,9 @@
-<div>
-    {{>navbar }}
+{{>navbar }}
+<main>
     <div>
         <h5> Mis Ofertas Publicadas</h5>
     </div>
+    <a href="/company/register" class="btn btn-primary">Crear Oferta</a>
     {{#each offers as |offer| }}
     <div class="card-offer">
         <div class="card-offer-body">
@@ -42,4 +43,4 @@
         </div>
     </div>
     {{/each }}
-</div>
+</main>
