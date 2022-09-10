@@ -1,6 +1,6 @@
 const User = require('../models/User.model');
 
-module.exports.userProfile = (req, res, next) => {
+module.exports.register = (req, res, next) => {
     res.render('user/profile', { user: req.user });
 }
 

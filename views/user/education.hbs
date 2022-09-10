@@ -2,15 +2,48 @@
     {{> navbar }}
 </main>
 
-<h4><dt>Educación:</dt></h4>
 
-<div class="experience-information"> 
+&nbsp;
+
+<div class="card">
+  <div class="card-body">
+    <h5><b>Estudios</b></h5>
+    <ul class="list-group list-group-flush text-left">
+       <li class="list-group-item"><b>Nombre de la institución</b> </li>
+       <li class="list-group-item"><b>Cargo:</b></li>
+       <li class="list-group-item"><b>Fecha de inicio:</b></li>
+       <li class="list-group-item"><b>Fecha de culminación:</b></li>
+       <li class="list-group-item"><b>Descripción:</b></li>
+    </ul>
+  </div>
+  <div class="card-footer float">
+     <a href="/profile" class="btn btn-light bi bi-pencil">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 18 18">
+    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+    </svg>
+    Editar
+     </a>
+  </div>
+</div>
+
+&nbsp;
+
+<div class="card">
+<div class="card-body">
 <form>
   <div class="form-row">
     <div class="row">
     <div class="form-group col-md-6">
       <label for="inputNameCompany">Nombre de la institución</label>
-      <input type="text" class="form-control" id="inputNameCompany" placeholder="Nombre de la institución">
+      <input type="text" class="form-control" id="inputNameCompany">
+    </div>
+      <div class="form-group col-md-6">
+      <label for="inputTypeOfStudy">Tipo de estudio</label>
+      <input type="text" class="form-control" id="inputTypeOfStudy" placeholder="Bachillerato, Formación Profesional, Enseñanzas universitarias, etc...">
+    </div>
+      <div class="form-group col-md-6">
+      <label for="inputFieldOfStudy">Campo de estudio</label>
+      <input type="text" class="form-control" id="inputFieldOfStudy" placeholder="Arte, cocina, economía, etc... ">
     </div>
     <div class="form-group col-md-3">
       <label for="inputlastName">Fecha de inicio:</label>
@@ -22,7 +55,10 @@
     </div>
 </div>
 </div>
-<button type="submit" class="btn btn-primary">Agregar más estudios</button>
+<div class="card-footer text-center">
+<button type="submit" class="btn btn-primary">Agregar</button>
 <a class="btn btn-large btn-primary" href="/profile/experience">Siguiente paso</a>
 </form>
+</div>
+</div>
 </div>

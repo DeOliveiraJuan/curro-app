@@ -10,9 +10,6 @@ const userExperienceSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Introduce el nombre de la posición']
     },
-    description: {
-        type: String,
-    },
     startDate: {
         type: Date,
         required: [true, 'Introduce la fecha de inicio']
@@ -21,6 +18,9 @@ const userExperienceSchema = new mongoose.Schema({
         type: Date,
         required: [true, 'Introduce la fecha de culminación']
     },
+    description: {
+        type: String,
+    }
 })
 
 const UserExperince = mongoose.model('UserExperince', userExperienceSchema);

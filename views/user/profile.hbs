@@ -8,46 +8,72 @@
     </h1>
 </main>
 
-<h4><dt>Datos personales:</dt></h4>
+&nbsp;
 
-<div class="personal-information"> 
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><b>Datos personales</b></h5>
+    <ul class="list-group list-group-flush text-left">
+       <li class="list-group-item"><b>Nombre:</b>  {{ user.name }}</li>
+       <li class="list-group-item"><b>Apellidos:</b> {{ user.lastName }}</li>
+       <li class="list-group-item"><b>Dirección:</b></li>
+       <li class="list-group-item"><b>Ciudad:</b></li>
+       <li class="list-group-item"><b>CP:</b></li>
+       <li class="list-group-item"><b>Email:</b></li>
+       <li class="list-group-item"><b>Número de teléfono:</b></li>
+    </ul>
+  </div>
+  <div class="card-footer text-center">
+     <a href="/profile" class="btn btn-danger bi bi-pencil">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 18 18">
+    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+    </svg>
+    Editar
+     </a>
+  </div>
+</div>
+
+&nbsp;
+
+<div class="card">
+   <div class="card-body">
 <form>
   <div class="form-row">
     <div class="row">
-    <div class="form-group col-md-4">
-      <label for="inputName">Nombre</label>
+    <div class="form-group col-md-6">
+      <label for="inputName"><b>Nombre</b></label>
       <input type="text" class="form-control" id="inputName" placeholder="Nombre"  value="{{ user.name }}">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputlastName">Apellidos</label>
+    <div class="form-group col-md-6">
+      <label for="inputlastName"><b>Apellidos</b></label>
       <input type="text" class="form-control" id="inputlastName" placeholder="Apellidos"  value="{{ user.lastName }}">
     </div>
 </div>
 </div>
 <div class="form-row">
 <div class="row">
-  <div class="form-group col-md-5">
-    <label for="inputAddress">Dirección</label>
+  <div class="form-group col-md-6">
+    <label for="inputAddress"><b>Dirección</b></label>
     <input type="text" class="form-control" id="inputAddress">
   </div>
-    <div class="form-group col-md-2">
-      <label for="inputCity">Ciudad</label>
+    <div class="form-group col-md-3">
+      <label for="inputCity"><b>Ciudad</b></label>
       <input type="text" class="form-control" id="inputCity">
     </div>
-    <div class="form-group col-md-1">
-      <label for="inputZip">CP</label>
+    <div class="form-group col-md-3">
+      <label for="inputZip"><b>CP</b></label>
       <input type="text" class="form-control" id="inputZip">
     </div>
  </div>
 </div>
 <div class="form-row">
 <div class="row">
-<div class="form-group col-md-4">
-      <label for="inputEmail4">Email</label>
+<div class="form-group col-md-6">
+      <label for="inputEmail4"><b>Email</b></label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ user.email }}">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputPhoneNumber">Número de teléfono</label>
+    <div class="form-group col-md-6">
+      <label for="inputPhoneNumber"><b>Número de teléfono</b></label>
       <input type="text" class="form-control" id="inputPhoneNumber">
     </div>
     </div>
@@ -59,10 +85,13 @@
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Editar datos personales</button>
-  <div id="browse_app">
-  <a class="btn btn-large btn-primary" href="/profile/education">Siguiente paso</a>
-</div>
+
+  <div class="card-footer text-center">
+   <button type="submit" class="btn btn-primary">Guardar</button>
+   <a class="btn btn-large btn-primary" href="/profile/education">Siguiente paso</a>
+  </div>  
   </div>
-</form>
+  </div>
+  </form>
+</div>
 </div>
