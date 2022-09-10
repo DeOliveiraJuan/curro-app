@@ -3,7 +3,7 @@ const Favorite = require('../models/Favorite.model')
 
 
 module.exports.feed = (req, res, next) => {
-    Offers.find().populate('company')
+    Offers.find({ status: true }).populate('company')
         .then((offers) => {
             console.log(offers)
             res.render("offer/feed", { offers, user: req.user });
@@ -37,5 +37,17 @@ module.exports.favorite = (req, res, next) => {
 
 }
 
+
+module.exports.delete = (req, res, next) => {
+    const { id } = req.params;
+    //findByIdAndUpdate
+    Offers.findByIdAndUpdate(id, { status: false })
+        .then(() => {
+            res.send('Todo Ok');
+        }
+        )
+        .catch((err) => next(err))
+
+}
 
 

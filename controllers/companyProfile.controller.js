@@ -16,16 +16,13 @@ module.exports.doRegister = (req, res, next) => {
     const company = new Company({ name, legalName, nif, phoneNumber, email, image, user });
     company.save()
         .then(() => {
-            res.redirect('/company/register');
-        }).catch(err => {
-            console.log(err);
-        }
-        );
+            res.redirect('/company/list');
+        }).catch((err) => next(err))
 }
 
 module.exports.offers = (req, res, next) => {
     user = req.user;
-    CompanyOffer.find({ user: user._id }).populate('company')
+    CompanyOffer.find({ user: user._id, status: true }).populate('company')
         .then((offers) => {
             return res.render("company/offers", { offers, user });
         })
@@ -35,23 +32,26 @@ module.exports.offers = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
     user = req.user;
-    Company.find({ user: user._id }).then((companies) => {
-        console.log(companies)
-        res.render("company/list", { companies, user: req.user });
-    })
+    Company.find({ user: user._id, status: true })
+        .then((companies) => {
+            console.log(companies)
+            res.render("company/list", { companies, user: req.user });
+        }).catch((err) => next(err))
 }
 
 module.exports.create = (req, res, next) => {
     user = req.user;
-    Company.find({ user: user._id }).then((companies) => {
-        if (companies.length > 0) {
-            res.render('company/create', {
-                user: req.user, companies
-            });
-        } else {
-            res.redirect('/company/register');
-        }
-    })
+    Company.find({ user: user._id })
+        .then((companies) => {
+            if (companies.length > 0) {
+                res.render('company/offer/create', {
+                    user: req.user, companies
+                });
+            } else {
+                res.redirect('/company/register');
+            }
+        })
+        .catch((err) => next(err))
 }
 
 module.exports.doCreate = (req, res, next) => {
@@ -60,19 +60,24 @@ module.exports.doCreate = (req, res, next) => {
     const companyOffer = new CompanyOffer({ company, salary, jobTitle, jobType, contractType, minExperience, description });
     companyOffer.save()
         .then(() => {
-            res.redirect('/company/create');
-        }).catch(err => {
-            console.log(err);
-        }
-        );
+            res.redirect('/company/offer/' + companyOffer._id);
+        }).catch((err) => next(err))
 }
 
 module.exports.viewCompany = (req, res, next) => {
     user = req.user;
     Company.findById(req.params.id).populate('companyOffers')
         .then((company) => {
-            console.log(company)
             res.render('company/view', { company, user });
         }).catch((err) => next(err))
-
 }
+
+module.exports.viewOffer = (req, res, next) => {
+    user = req.user;
+    CompanyOffer.findById(req.params.id).populate('company')
+        .then((offer) => {
+            console.log(offer)
+            res.render('company/offer/detail', { offer, user });
+        }).catch((err) => next(err))
+}
+
