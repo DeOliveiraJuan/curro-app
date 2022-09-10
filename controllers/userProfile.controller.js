@@ -25,11 +25,17 @@ module.exports.doRegisterEducation = (req, res, next) => {
     })
 }
 
-module.exports.userProfileEducation = (req, res, next) => {
-    res.render('user/education', { user: req.user });
+module.exports.userEducation = (req, res, next) => {
+    user = req.user;
+    UserEducation.find({ user: user._id })
+        .then((educations) => {
+            console.log('educaciones', educations);
+            res.render('user/education', { educations, user });
+        })
+        .catch((err) => next(err))
 }
 
-module.exports.userProfileExperience = (req, res, next) => {
+module.exports.userExperience = (req, res, next) => {
     res.render('user/experience', { user: req.user });
 }
 
