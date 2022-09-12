@@ -17,21 +17,22 @@
  &nbsp;
   <h3><b>Mi Perfil 😎🚀</b></h3>
  &nbsp;
-  <div class="card">
+
+ <div class="card">
     <div class="card-body">
       <h5 class="card-title"><b>Datos Personales</b></h5>
       <ul class="list-group list-group-flush text-left">
-        <li class="list-group-item"><b>Nombre:</b> {{ user.name }} </li>
-        <li class="list-group-item"><b>Apellidos:</b> {{ user.lastName }} </li>
-        <li class="list-group-item"><b>Dirección:</b></li>
-        <li class="list-group-item"><b>Ciudad:</b></li>
-        <li class="list-group-item"><b>CP:</b></li>
+        <li class="list-group-item"><b>Nombre:</b> {{ user.name }}</li>
+        <li class="list-group-item"><b>Apellidos:</b> {{ user.lastName }}</li>
+        <li class="list-group-item"><b>Dirección:</b> {{ userComplete.address }}</li>
+        <li class="list-group-item"><b>Ciudad:</b> {{ userComplete.city }} </li>
+        <li class="list-group-item"><b>CP:</b> {{ userComplete.zipCode }}</li>
         <li class="list-group-item"><b>Email:</b> {{ user.email }}</li>
-        <li class="list-group-item"><b>Número de teléfono:</b></li>
+        <li class="list-group-item"><b>Número de teléfono:</b> {{ userComplete.phoneNumber }} </li>
       </ul>
     </div>
     <div class="card-footer text-center">
-      <a href="/profile" class="btn btn-secondary bi bi-pencil">
+      <a href="/user/profile" class="btn btn-secondary bi bi-pencil">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
           viewBox="0 0 18 18">
           <path
@@ -42,7 +43,7 @@
     </div>
   </div>
 
-  &nbsp;
+ &nbsp;
 
   <div class="card">
     <div class="card-body">
@@ -91,9 +92,10 @@
      <div class="form-row">
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="email"><b>DNI, NIE, Pasaporte o Permiso de Trabajo</b></label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <label for="legalId"><b>DNI, NIE, Pasaporte o Permiso de Trabajo</b></label>
+              <input type="text" class="form-control" id="legalId" name="legalId" required>
             </div>
+    &nbsp;
             <div class="form-group col-md-6 text-center">
               <div class="form-group col-md-6">
               <label for="idPhoto" class="btn btn-danger">Adjuntar foto del documento</label>
@@ -105,13 +107,13 @@
        <div class="form-row">
         <div class="row">
         <div class="form-check col-md-3">
-          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="yes">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="true">
           <label class="form-check-label" for="gridCheck">
             Tengo permiso de trabajo
           </label>
         </div>
         <div class="form-check col-md-4">
-          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="yes">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="europeanNationality" value="true">
           <label class="form-check-label" for="gridCheck">
             Tengo documentos de la Comunidad Europea
           </label>
@@ -125,4 +127,6 @@
       <button type="submit" class="btn btn-primary">Guardar y continuar</button>
     </div>
   </div>
+
 </main>
+

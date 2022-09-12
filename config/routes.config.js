@@ -27,7 +27,8 @@ router.get('/auth/google/callback', authMiddlewares.isNotAuthenticated, authCont
 router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 
 //User routes
-router.get('/profile', authMiddlewares.isAuthenticated, usersController.register);
+router.get('/user/profile', authMiddlewares.isAuthenticated, usersController.userComplete);
+router.post('/user/profile', authMiddlewares.isAuthenticated, usersController.doRegisterComplete);
 router.get('/user/education', authMiddlewares.isAuthenticated, usersController.userEducation);
 router.post('/user/education', authMiddlewares.isAuthenticated, usersController.doRegisterEducation);
 router.get('/user/experience', authMiddlewares.isAuthenticated, usersController.userExperience);
@@ -50,9 +51,6 @@ router.get('/company/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCo
 router.get('/company/offer/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewCompany);
 
 router.get('/company/offer/detail/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewOffer);
-
-
-
 
 //Favorite Routes
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);
