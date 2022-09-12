@@ -35,8 +35,28 @@ module.exports.userEducation = (req, res, next) => {
         .catch((err) => next(err))
 }
 
+module.exports.doRegisterExperience = (req, res, next) => {
+    const { companyName, jobTitle, startDate, endDate, description } = req.body;
+    const user = res.locals.currentUser._id
+    console.log(user);
+    console.log(req.body);
+    const experience = new UserExperience({ companyName, jobTitle, startDate, endDate, description, user });
+    experience.save()
+    .then(() => {
+        res.render('user/experience');
+    }).catch(err => {
+        console.log(err)
+    })
+}
+
 module.exports.userExperience = (req, res, next) => {
-    res.render('user/experience', { user: req.user });
+    user = req.user;
+    UserExperience.find({ user: user._id })
+        .then((experiences) => {
+            console.log('experiencia', experiences);
+            res.render('user/experience', { experiences, user });
+        })
+        .catch((err) => next(err))
 }
 
 module.exports.aplications = (req, res, next) => {

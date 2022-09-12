@@ -12,13 +12,14 @@
       <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="100" alt={{currentUser.name}}
         referrerpolicy="no-referrer">
       <h2>Hola <b>{{currentUser.name}}</b>,</h2>
-      <h2>¡bienvenido a tu perfil!</h2>
+      <h2>¡bienvenido a tú perfil!</h2>
   </h1>
-  <h3><b>Mi Perfil 😎</b></h3>
+ &nbsp;
+  <h3><b>Mi Perfil 😎🚀</b></h3>
+ &nbsp;
   <div class="card">
-    
     <div class="card-body">
-      <h5 class="card-title">Datos Personales</h5>
+      <h5 class="card-title"><b>Datos Personales</b></h5>
       <ul class="list-group list-group-flush text-left">
         <li class="list-group-item"><b>Nombre:</b> {{ user.name }} </li>
         <li class="list-group-item"><b>Apellidos:</b> {{ user.lastName }} </li>
@@ -62,45 +63,66 @@
         <div class="form-row">
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="inputAddress"><b>Dirección</b></label>
-              <input type="text" class="form-control" id="inputAddress">
+              <label for="address"><b>Dirección</b></label>
+              <input type="text" class="form-control" name="address" id="address">
             </div>
             <div class="form-group col-md-3">
-              <label for="inputCity"><b>Ciudad</b></label>
-              <input type="text" class="form-control" id="inputCity">
+              <label for="city"><b>Ciudad</b></label>
+              <input type="text" class="form-control" name="city" id="city">
             </div>
             <div class="form-group col-md-3">
-              <label for="inputZip"><b>CP</b></label>
-              <input type="text" class="form-control" id="inputZip">
+              <label for="zipCode"><b>CP</b></label>
+              <input type="text" class="form-control" name="zipCode" id="zipCode">
             </div>
           </div>
         </div>
         <div class="form-row">
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="inputEmail4"><b>Email</b></label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ user.email }}">
+              <label for="email"><b>Email</b></label>
+              <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
             </div>
             <div class="form-group col-md-6">
-              <label for="inputPhoneNumber"><b>Número de teléfono</b></label>
-              <input type="text" class="form-control" id="inputPhoneNumber">
+              <label for="phoneNumber"><b>Número de teléfono</b></label>
+              <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" required>
             </div>
-          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
+      </div>
+     <div class="form-row">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="email"><b>DNI, NIE, Pasaporte o Permiso de Trabajo</b></label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group col-md-6 text-center">
+              <div class="form-group col-md-6">
+              <label for="idPhoto" class="btn btn-danger">Adjuntar foto del documento</label>
+              <input type="file" class="form-control" style="display:none" name="idPhoto" id="idPhoto">
+            </div>
+        </div>
+      </div>
+       &nbsp;
+       <div class="form-row">
+        <div class="row">
+        <div class="form-check col-md-3">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="yes">
           <label class="form-check-label" for="gridCheck">
-            ¿Tienes permiso de trabajo?
+            Tengo permiso de trabajo
+          </label>
+        </div>
+        <div class="form-check col-md-4">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="yes">
+          <label class="form-check-label" for="gridCheck">
+            Tengo documentos de la Comunidad Europea
           </label>
         </div>
     </div>
+</div>
+</div>
+</div>
 
-    <div class="card-footer text-center">
+<div class="card-footer text-center">
       <button type="submit" class="btn btn-primary">Guardar y continuar</button>
     </div>
-  </div>
-  </div>
-  </form>
-  </div>
   </div>
 </main>

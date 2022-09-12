@@ -31,6 +31,7 @@ router.get('/profile', authMiddlewares.isAuthenticated, usersController.register
 router.get('/user/education', authMiddlewares.isAuthenticated, usersController.userEducation);
 router.post('/user/education', authMiddlewares.isAuthenticated, usersController.doRegisterEducation);
 router.get('/user/experience', authMiddlewares.isAuthenticated, usersController.userExperience);
+router.post('/user/experience', authMiddlewares.isAuthenticated, usersController.doRegisterExperience);
 
 //Offer routes
 router.get('/offer/feed', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.feed);

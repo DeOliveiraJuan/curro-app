@@ -1,0 +1,62 @@
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const EMAIL_PATTERN =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const PASSWORD_PATTERN = /^.{8,}$/i;
+const SALT_ROUNDS = 10;
+
+const userSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    address: {
+        type: String,
+        required: [true, 'Introduce tu dirección de vivienda']
+    },
+    city: {
+        type: String,
+        required: [true, 'Introduce tu ciudad']
+    },
+    zipCode: {
+        type: Number,
+        required: [true, 'Introduce tu código postal']
+    },
+    phoneNumber: {
+        type: Number,
+        required: [true, 'Introduce tu número de teléfono']
+    },
+    idPhoto: {
+        
+    }
+ 
+
+    
+
+})
+
+userSchema.pre('save', function (next) {
+    const user = this;
+
+    if (user.isModified('password')) {
+        bcrypt
+            .hash(user.password, SALT_ROUNDS)
+            .then((hash) => {
+                user.password = hash;
+                next();
+            })
+            .catch(err => next(err));
+    } else {
+        next();
+    }
+})
+
+userSchema.methods.checkPassword = function (password) {
+    const user = this;
+    return bcrypt.compare(password, user.password);
+}
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
