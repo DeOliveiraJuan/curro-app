@@ -43,12 +43,9 @@ const login = (req, res, next, provider) => {
       res.status(404).render('auth/login', { error: validations.error })
     } else {
       req.login(user, (loginError) => {
-        console.log('>>> req.login ', loginError);
         if (loginError) {
-          console.log('>>> if loginError ', loginError);
           next(loginError)
         } else {
-          console.log('>>> else loginError redirect ', loginError);
           res.redirect('/user/profile');
         }
       })

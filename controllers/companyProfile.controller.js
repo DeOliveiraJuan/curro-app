@@ -34,7 +34,6 @@ module.exports.list = (req, res, next) => {
     user = req.user;
     Company.find({ user: user._id, status: true })
         .then((companies) => {
-            console.log(companies)
             res.render("company/list", { companies, user: req.user });
         }).catch((err) => next(err))
 }
@@ -56,7 +55,6 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
     const { company, salary, jobTitle, jobType, contractType, minExperience, description } = req.body;
-    console.log(req.body)
     const companyOffer = new CompanyOffer({ company, salary, jobTitle, jobType, contractType, minExperience, description });
     companyOffer.save()
         .then(() => {
@@ -76,7 +74,6 @@ module.exports.viewOffer = (req, res, next) => {
     user = req.user;
     CompanyOffer.findById(req.params.id).populate('company')
         .then((offer) => {
-            console.log(offer)
             res.render('company/offer/detail', { offer, user });
         }).catch((err) => next(err))
 }
