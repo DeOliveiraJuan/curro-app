@@ -1,5 +1,6 @@
 const Company = require('../models/Company.model');
 const CompanyOffer = require('../models/CompanyOffer.model')
+const OfferUser = require('../models/OfferUser.model');
 
 module.exports.company = (req, res, next) => {
     res.render('company/profile', { user: req.user });
@@ -74,11 +75,13 @@ module.exports.viewCompany = (req, res, next) => {
 
 module.exports.viewOffer = (req, res, next) => {
     user = req.user;
-
-    CompanyOffer.findById(req.params.id).populate('company')
-        .then((offer) => {
-            console.log(offer)
-            res.render('company/offer/detail', { offer, user });
+    // PromiseALL
+    Promise.all([
+        CompanyOffer.findById(req.params.id).populate('company'),
+        OfferUser.find({ offer: req.params.id }).populate('user')
+    ])
+        .then(([offer, candidates]) => {
+            console.log(candidates)
+            res.render('company/offer/detail', { offer, candidates, user: req.user });
         }).catch((err) => next(err))
 }
-

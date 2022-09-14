@@ -54,27 +54,29 @@
     </div>
     <div class="mt-4">
         <h3>Candidatos</h3>
+        {{#each candidates as |candidate| }}
         <div class="card-offer">
             <div class="card-offer-body">
                 <div class="card-offer-logo">
-                    <img src="{{user.image}}" alt="{{user.name}}">
+                    <img src="{{candidate.user.image}}" alt="{{candidate.user.name}}">
                 </div>
                 <div class="card-offer-title">
                     <h2>
-                        Julian David Osorio Feria
+                        {{ candidate.user.name }}
                     </h2>
                     <div class="">
                         <p>
-                            jdosoriof@icloud.com <br>672141507
+                            {{candidate.user.email}}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="card-offer-footer d-flex justify-content-end">
-                <a href="/profile/public/{{company._id}}" class="btn-apply">
+                <a href="/profile/{{candidate.user._id}}" class="btn-apply">
                     Más información
                 </a>
             </div>
         </div>
+        {{/each}}
 
 </main>

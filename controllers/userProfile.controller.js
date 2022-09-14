@@ -45,5 +45,15 @@ module.exports.aplications = (req, res, next) => {
 
 module.exports.publicProfile = (req, res, next) => {
     const id = req.params.id;
-    res.render('user/publicProfile', { user: req.user });
+    // PromiseAll
+    Promise.all([
+        User.findById(id),
+        UserEducation.find({ user: id }),
+        UserExperience.find({ user: id })
+    ])
+        .then(([user, educations, experiences]) => {
+            console.log('educaciones', educations);
+            res.render('user/publicProfile', { user, educations, experiences });
+        })
 }
+
