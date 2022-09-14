@@ -12,17 +12,17 @@ module.exports.registerEducation = (req, res, next) => {
 }
 
 module.exports.doRegisterEducation = (req, res, next) => {
-   const { institutionName, typeOfStudy, fieldOfStudy, startDate, endDate } = req.body;
-   const user = res.locals.currentUser._id
-   console.log(user)
-   console.log(req.body);
-   const education = new UserEducation({ institutionName, typeOfStudy, fieldOfStudy, startDate, endDate, user });
-   education.save()
-    .then(() => {
-        res.redirect('/user/education');
-    }).catch(err => {
-        console.log(err)
-    })
+    const { institutionName, typeOfStudy, fieldOfStudy, startDate, endDate } = req.body;
+    const user = res.locals.currentUser._id
+    console.log(user)
+    console.log(req.body);
+    const education = new UserEducation({ institutionName, typeOfStudy, fieldOfStudy, startDate, endDate, user });
+    education.save()
+        .then(() => {
+            res.redirect('/user/education');
+        }).catch(err => {
+            console.log(err)
+        })
 }
 
 module.exports.userEducation = (req, res, next) => {
@@ -41,4 +41,9 @@ module.exports.userExperience = (req, res, next) => {
 
 module.exports.aplications = (req, res, next) => {
     res.render('user/aplications', { user: req.user });
+}
+
+module.exports.publicProfile = (req, res, next) => {
+    const id = req.params.id;
+    res.render('user/publicProfile', { user: req.user });
 }

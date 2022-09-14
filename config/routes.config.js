@@ -32,6 +32,7 @@ router.get('/user/education', authMiddlewares.isAuthenticated, usersController.u
 router.post('/user/education', authMiddlewares.isAuthenticated, usersController.doRegisterEducation);
 router.get('/user/experience', authMiddlewares.isAuthenticated, usersController.userExperience);
 
+router.get('/profile/:id', authMiddlewares.isAuthenticated, usersController.publicProfile);
 //Offer routes
 router.get('/offer/feed', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.feed);
 router.get('/offer/detail/:id', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.detail);
@@ -55,6 +56,8 @@ router.get('/company/offer/detail/:id', authMiddlewares.isAuthenticated, authMid
 
 //Favorite Routes
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);
+router.post('/offer/apply', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.apply);
+router.post('/offer/deny', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.deleteApply);
 
 
 module.exports = router

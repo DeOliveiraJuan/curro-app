@@ -41,11 +41,7 @@ const companySchema = new mongoose.Schema({
     }
 })
 
-companySchema.virtual('companyOffers', {
-    ref: 'CompanyOffer',
-    localField: '_id',
-    foreignField: 'company'
-});
+
 
 const Company = mongoose.model('Company', companySchema);
 

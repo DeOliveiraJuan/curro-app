@@ -74,6 +74,7 @@ module.exports.viewCompany = (req, res, next) => {
 
 module.exports.viewOffer = (req, res, next) => {
     user = req.user;
+
     CompanyOffer.findById(req.params.id).populate('company')
         .then((offer) => {
             console.log(offer)
