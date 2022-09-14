@@ -14,11 +14,11 @@ const companyOfferSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Introduzca el salario neto de la posición por horas']
     },
-    jobType: { // Partial o full time
+    jobType: { 
         type: String,
         default: 'Tiempo completo'
     },
-    contractType: { // undefined, temporal, etc...
+    contractType: { 
         type: String,
         required: [true, 'Introduzca el tipo de contrato']
     },

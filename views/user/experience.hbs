@@ -7,33 +7,33 @@
             <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
         </ol>
     </nav>
+  <h1>
+    <div class="col text-center mt-2">
+      <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="100" alt={{currentUser.name}}
+        referrerpolicy="no-referrer">
+      <h2><b>{{currentUser.name}}</b>, ahora lúcete con tu experiencia 🍽</h2>
+    </div>
+  </h1>
 
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title"><b>Experiencia laboral</b></h5>
-    <ul class="list-group list-group-flush text-left">
-       <li class="list-group-item"><b>Nombre de la empresa:</b> </li>
-       <li class="list-group-item"><b>Cargo:</b></li>
-       <li class="list-group-item"><b>Fecha de inicio:</b></li>
-       <li class="list-group-item"><b>Fecha de culminación:</b></li>
-       <li class="list-group-item"><b>Descripción:</b></li>
-    </ul>
-  </div>
-  <div class="card-footer text-center">
-     <a href="/profile" class="btn btn-secondary bi bi-pencil">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 18 18">
-    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-    </svg>
-    Editar
-     </a>
-  </div>
+  &nbsp;
+
+<div class="col text-end mt-2">
+<a href="/user/experience/create" id="add-experience-btn" class="btn btn-success">
+  + Agregar experiencia
+</a>
 </div>
 
-&nbsp;
+<div class="col text-end mt-2">
+<a href="/user/profile"  class="btn btn-primary">
+  Finalizar
+</a>
+</div>
 
+<div class="status" id="new-experience-form" style="display: none">
 <div class="card">
     <div class="card-body">
-<form>
+    <h5 class="card-title"><b>Experiencia laboral</b></h5>
+<form method="POST" action="/user/experience">
   <div class="form-row">
     <div class="row">
     <div class="form-group col-md-6">
@@ -59,13 +59,59 @@
   <textarea class="form-control" rows="4" name="description" id="description" placeholder="Cuéntanos un poco ¿qué hacías en este curro?"></textarea>
 </div>
   <div class="card-footer text-center">
-   <button type="submit" class="btn btn-primary">+</button>
-   <a class="btn btn-large btn-primary" href="/user/profile">Finalizar</a>
+   <button type="submit" class="btn btn-primary">Añadir</button>
   </div>  
 </form>
 </div>
 </div>
+</div>
+
+&nbsp;
+
+  {{#each experiences as |experience| }}
+<div class="card">
+  <div class="card-body">
+     <h5><b>{{ experience.companyName }}</b></h5>
+    <ul class="list-group list-group-flush text-left">
+       <li class="list-group-item">{{ experience.jobTitle }}</li>
+       <li class="list-group-item">{{ experience.startDate }}</li>
+       <li class="list-group-item">{{ experience.endDate }}</li>
+       <li class="list-group-item"><b>Descripción:</b> {{ experience.description }}</li>
+    </ul>
+  </div>
+<div class="card-footer text-end">
+     <a href="/user/experience" class="btn btn-secondary bi bi-pencil">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 18 18">
+    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+    </svg>
+     </a>
+    <a href="/user/experience" class="btn btn-danger remove" data-id="{{ experience._id }}">
+ <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+  </svg>
+    </a>
+  </div>
+</div>
+&nbsp;
+{{/each}}
 </main>
 
+<script>
+  const removeNodes = document.querySelectorAll('.remove');
+  for(let node of removeNodes) {
+    node.addEventListener('click', () => {
+      const nodeId = node.dataset.id;
+      axios.delete(`/user/experience/${nodeId}`)
+        .then(responseFromApi => {
+          console.log('Success!', responseFromApi);
+          if(responseFromApi.status == 204) {
+            document.querySelector(`.experience[data-id="${nodeId}"]`).remove();
+          }
+        })
+        .catch(error => console.log('Error!', error))
+    })
+  }
+</script>
 
 

@@ -37,23 +37,16 @@ module.exports.doRegister = (req, res, next) => {
 
 const login = (req, res, next, provider) => {
   passport.authenticate(provider || 'local-auth', (err, user, validations) => {
-    console.log('>>> login ', err, user, validations);
     if (err) {
-      console.log('>>> err ');
       next(err)
     } else if (!user) {
-      console.log('>>> else if !user ');
       res.status(404).render('auth/login', { error: validations.error })
     } else {
-      console.log('>>> else guay ');
       req.login(user, (loginError) => {
-        console.log('>>> req.login ', loginError);
         if (loginError) {
-          console.log('>>> if loginError ', loginError);
           next(loginError)
         } else {
-          console.log('>>> else loginError redirect ', loginError);
-          res.redirect('/profile');
+          res.redirect('/user/profile');
         }
       })
     }

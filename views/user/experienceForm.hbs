@@ -1,0 +1,56 @@
+{{> navbar }}
+<main>
+  <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
+        </ol>
+    </nav>
+  <h1>
+    <div class="col text-center mt-2">
+      <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="100" alt={{currentUser.name}}
+        referrerpolicy="no-referrer">
+      <h2><b>{{currentUser.name}}</b>, ahora lúcete con tu experiencia 🍽</h2>
+  </h1>
+
+  &nbsp;
+
+<div class="card">
+    <div class="card-body">
+    <h5 class="card-title"><b>Experiencia laboral</b></h5>
+<form method="POST" action="/user/experience">
+  <div class="form-row">
+    <div class="row">
+    <div class="form-group col-md-6">
+      <label for="companyName">Nombre de la empresa:</label>
+      <input type="text" class="form-control" name="companyName" id="companyName">
+    </div>
+     <div class="form-group col-md-6">
+      <label for="jobTitle">Cargo:</label>
+      <input type="text" class="form-control" name="jobTitle" id="jobTitle">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="startDate">Fecha de inicio:</label>
+      <input type="date" class="form-control" name="startDate" id="startDate">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="endDate">Fecha de culminación:</label>
+      <input type="date" class="form-control" name="endDate" id="endDate">
+    </div>
+</div>
+</div>
+<div class="form-group col-md-8">
+  <label for="description">Descripción:</label>
+  <textarea class="form-control" rows="4" name="description" id="description" placeholder="Cuéntanos un poco ¿qué hacías en este curro?"></textarea>
+</div>
+ <div class="card-footer text-end">
+<button type="submit" class="btn btn-success">Añadir</button>
+</div>
+</form>
+</div>
+</div>
+
+
+
+

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const userExperienceSchema = new mongoose.Schema({
-   
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
     companyName: {
         type: String,
         required: [true, 'Introduce el nombre de la empresa']
