@@ -21,7 +21,7 @@ module.exports.doRegister = (req, res, next) => {
       } else {
         return User.create(user)
           .then((userCreated) => {
-            res.redirect('/profile');
+            res.redirect('/user/profile');
           });
       }
     })

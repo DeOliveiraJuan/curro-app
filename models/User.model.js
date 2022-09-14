@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        default: '.images/user-image-default.png'
+        default: '/images/user-image-default.png'
     },
     googleID: {
         type: String
