@@ -5,6 +5,10 @@ module.exports.register = (req, res, next) => {
     res.render('user/profile', { user: req.user });
 }
 
+module.exports.publicProfile = (req, res, next) => {
+    res.render('user/publicprofile', { user: req.user });
+}
+
 module.exports.doRegisterComplete = (req, res, next) => {
     const { address, city, zipCode, phoneNumber, legalId, idPhoto, workPermit, europeanNationality } = req.body;
     const user = res.locals.currentUser._id

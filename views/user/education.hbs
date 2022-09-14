@@ -3,8 +3,8 @@
   <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
         aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
+            <li class="breadcrumb-item"><a href="/user/profile">Mi Perfil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Educación</li>
         </ol>
     </nav>
   <h1>
@@ -18,14 +18,8 @@
   &nbsp;
 
 <div class="col text-end mt-2">
-<a href="/user/education/create" id="add-education-btn" class="btn btn-success">
+<a href="/user/education/create" id="add-education-btn" class="btn btn-success rounded-pill">
   + Agregar educación
-</a>
-</div>
-
-<div class="col text-end mt-2">
-<a href="/user/experience"  class="btn btn-light">
-  ➔ Seguir a experiencia
 </a>
 </div>
 
@@ -59,7 +53,7 @@
 </div>
 </div>
 <div class="card-footer text-center">
-<button type="submit" class="btn btn-primary">Añadir</button>
+<button type="submit" class="btn btn-primary rounded-pill">Añadir</button>
 </form>
 </div>
 </div>
@@ -95,6 +89,13 @@
 </div>
 &nbsp;
 {{/each }}
+
+<div class="col text-end mt-2">
+<a href="/user/experience"  class="btn btn-light rounded-pill">
+  ➔ Seguir a experiencia
+</a>
+</div>
+
 </main>
 
 <script>

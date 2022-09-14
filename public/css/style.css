@@ -2,8 +2,8 @@
 
 /* Varibales de Colores */
 :root {
-    --main-color: #2B6173;
-    --secondary-color: #E8F569;
+    --main-color: #0c81e4;
+    --secondary-color: #3543bf;
     --gray-color: #bcbcbc;
     --gray-light-color: #F8F8F8;
     --gray-secondary-color: #eee;
@@ -39,7 +39,7 @@ main {
 .home-background {
     width: auto;
     height: 100vh;
-    background: linear-gradient(180deg, #265565 0%, #288FB1 47.92%, #265565 100%);
+    background: linear-gradient(180deg, #0C4E8C 0%, #162162 47.92%, #343bc0 100%);
     display: flex;
     justify-content: center;
 }
@@ -50,6 +50,10 @@ main {
     bottom: 0%;
     margin: 10px 10px;
     text-align: center;
+}
+
+.message-form {
+    color: white;
 }
 
 .access {
@@ -79,7 +83,7 @@ main {
 
 .btn-primary {
     background: var(--secondary-color);
-    color: var(--main-color);
+    color:  white;
     text-decoration: none;
     border-radius: 12px;
     font-weight: 700;
