@@ -1,12 +1,13 @@
 {{> navbar }}
 <main>
-  <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
-        aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
-        </ol>
-    </nav>
+  <div class="btn-group float-end">
+    <button type="button" class="btn btn-gray" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+    </ul>
+  </div>
   <h1>
     <div class="col text-center mt-2">
       <img src={{currentUser.image}} class="rounded-circle border border-3 m-4" width="100" alt={{currentUser.name}}
@@ -14,24 +15,24 @@
       <h2>Hola <b>{{currentUser.name}}</b>,</h2>
       <h2>¡bienvenido a tú perfil!</h2>
   </h1>
- &nbsp;
+  &nbsp;
   <h3><b>Mi Perfil 😎🚀</b></h3>
- &nbsp;
+  &nbsp;
 
-<div class="container">
-<div class="row">
-    <div class="col text-start">
-          <a class="btn btn-light border rounded-pill" href="/user/education" role="button"><b>Ver mi educación</b></a>
+  <div class="container">
+    <div class="row">
+      <div class="col text-start">
+        <a class="btn btn-light border rounded-pill" href="/user/education" role="button"><b>Ver mi educación</b></a>
+      </div>
+      <div class="col text-end">
+        <a class="btn btn-light border rounded-pill" href="/user/experience" role="button"><b>Ver mi experiencia</b></a>
+      </div>
     </div>
-    <div class="col text-end">   
-          <a class="btn btn-light border rounded-pill" href="/user/experience" role="button"><b>Ver mi experiencia</b></a>
-    </div>
-</div>
-</div>
+  </div>
 
- &nbsp;
+  &nbsp;
 
- <div class="card" id="complete-card" style="display: block">
+  <div class="card" id="complete-card" style="display: block">
     <div class="card-body">
       <h5 class="card-title"><b>Datos Personales</b></h5>
       <ul class="list-group list-group-flush text-left">
@@ -55,7 +56,7 @@
     </div>
   </div>
 
- &nbsp;
+  &nbsp;
 
   <div class="card" id="card-form" style="display: none">
     <div class="card-body">
@@ -99,43 +100,43 @@
               <label for="phoneNumber"><b>Número de teléfono</b></label>
               <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" required>
             </div>
+          </div>
         </div>
-      </div>
-     <div class="form-row">
+        <div class="form-row">
           <div class="row">
             <div class="form-group col-md-6">
               <label for="legalId"><b>DNI, NIE, Pasaporte o Permiso de Trabajo</b></label>
               <input type="text" class="form-control" id="legalId" name="legalId" required>
             </div>
-    &nbsp;
+            &nbsp;
             <div class="form-group col-md-6 text-center">
               <div class="form-group col-md-6">
-              <label for="idPhoto" class="btn btn-danger">Adjuntar foto del documento</label>
-              <input type="file" class="form-control" style="display:none" name="idPhoto" id="idPhoto">
+                <label for="idPhoto" class="btn btn-danger">Adjuntar foto del documento</label>
+                <input type="file" class="form-control" style="display:none" name="idPhoto" id="idPhoto">
+              </div>
             </div>
-        </div>
-      </div>
-       &nbsp;
-       <div class="form-row">
-        <div class="row">
-        <div class="form-check col-md-3">
-          <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="true">
-          <label class="form-check-label" for="gridCheck">
-            Tengo permiso de trabajo
-          </label>
-        </div>
-        <div class="form-check col-md-4">
-          <input class="form-check-input" type="checkbox" id="gridCheck" name="europeanNationality" value="true">
-          <label class="form-check-label" for="gridCheck">
-            Tengo documentos de la Comunidad Europea
-          </label>
+          </div>
+          &nbsp;
+          <div class="form-row">
+            <div class="row">
+              <div class="form-check col-md-3">
+                <input class="form-check-input" type="checkbox" id="gridCheck" name="workPermit" value="true">
+                <label class="form-check-label" for="gridCheck">
+                  Tengo permiso de trabajo
+                </label>
+              </div>
+              <div class="form-check col-md-4">
+                <input class="form-check-input" type="checkbox" id="gridCheck" name="europeanNationality" value="true">
+                <label class="form-check-label" for="gridCheck">
+                  Tengo documentos de la Comunidad Europea
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
-</div>
-</div>
-</div>
 
-<div class="card-footer text-center">
+    <div class="card-footer text-center">
       <button type="submit" class="btn btn-primary">Guardar y continuar</button>
     </div>
   </div>
@@ -143,11 +144,10 @@
 </main>
 
 <script>
- function showDiv() {
-  document.getElementById("card-form").style.display = "block";
-}
- function noShowDiv() {
-  document.getElementById("complete-card").style.display = "none";
-}
+  function showDiv() {
+    document.getElementById("card-form").style.display = "block";
+  }
+  function noShowDiv() {
+    document.getElementById("complete-card").style.display = "none";
+  }
 </script>
-

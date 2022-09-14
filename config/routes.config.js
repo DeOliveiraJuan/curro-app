@@ -65,6 +65,7 @@ router.get('/company/offer/:id', authMiddlewares.isAuthenticated, authMiddleware
 router.get('/company/offer/detail/:id', authMiddlewares.isAuthenticated, authMiddlewares.isCompany, companiesController.viewOffer);
 
 //Favorite Routes
+router.get('/user/favorites', authMiddlewares.isAuthenticated, usersController.favorites);
 router.post('/offer/favorite', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.favorite);
 router.post('/offer/apply', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.apply);
 router.post('/offer/deny', authMiddlewares.isAuthenticated, authMiddlewares.isNotCompany, offerController.deleteApply);

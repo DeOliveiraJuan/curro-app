@@ -1,3 +1,4 @@
+const Favorite = require('../models/Favorite.model');
 const User = require('../models/User.model');
 const UserComplete = require('../models/UserComplete.model');
 const UserEducation = require('../models/UserEducation.model');
@@ -63,3 +64,11 @@ module.exports.publicProfile = (req, res, next) => {
         })
 }
 
+module.exports.favorites = (req, res, next) => {
+    Favorite.find({ user: req.user._id })
+        .populate('offer')
+        .then((favorites) => {
+            console.log(favorites)
+            res.render('user/offerFavorites', { favorites, user: req.user });
+        })
+}

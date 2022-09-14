@@ -52,26 +52,28 @@
             {{offer.description }}
         </p>
     </div>
-
-    <div class="applyButton">
+    <div class="text-center mt-2">
         {{#if enrolled }}
         {{#if enrolled.estado}}
-        <button class=" btn btn-danger w-full" onclick="deny('{{offer._id}}')" id="deny">
+        <button class="rounded-pill btn btn-danger w-full" onclick="deny('{{offer._id}}')" id="deny">
             Desinscribirme de la oferta
         </button>
         {{else}}
-        <button class=" btn btn-info w-full disabled" id="deny" data-id="{{offer._id}}">
+        <button class="rounded-pill btn btn-info w-full disabled" id="deny" data-id="{{offer._id}}">
             Ya te has inscrito a esta oferta
         </button>
         {{/if}}
 
 
         {{else}}
-        <button class=" btn btn-success w-full" onclick="apply('{{offer._id}}')" id="apply">
+        <button class="rounded-pill btn btn-success w-full" onclick="apply('{{offer._id}}')" id="apply">
             Inscribirme en esta Oferta
         </button>
 
         {{/if}}
+    </div>
+    <div class="applyButton">
+
     </div>
 </main>
 

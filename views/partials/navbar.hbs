@@ -1,58 +1,94 @@
-<nav class="navbar navbar-dark bg-dark sticky-top">
-    <div class="container-fluid">
-        {{#if user.isCompany}}
-        <a href="/company/offers" class="navbar-brand">CurroApp</a>
-        {{else}}
+<div class="fixed-bottom text-bg-primary h-5 ">
+    <div class="d-flex p-2 pt-4">
+        <ul class=" d-flex justify-content-around align-items-center flex-grow-1 pe-3 list-unstyled">
+            <li class="nav-item">
+                {{#if user.isCompany}}
+                <a href="/company/offers" class="navbar-brand">
+                    <i class="fa fa-home"></i>
+                </a>
+                {{else}}
 
-        <a href="/offer/feed" class="navbar-brand">CurroApp</a>
-        {{/if}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
-            aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-            aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">CurroApp</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    {{#if user.isCompany}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/company/list">Mis Empresas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/company/offers">Mis Ofertas Publicadas</a>
-                    </li>
+                <a href="/offer/feed" class="navbar-brand">
+                    <i class="fa fa-home"></i>
+                </a>
+                {{/if}}
 
-                    {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/offer/feed">Ofertas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/offer/favorite">Ofertas Favoritas</a>
-                    </li>
-                    {{/if}}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Mi Cuenta
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/user/profile">Mi perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+            </li>
+            {{#if user.isCompany}}
+            <li class="nav-item">
+                <a class="nav-link" href="/company/list">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-building" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                        <path
+                            d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+                    </svg>
+                </a>
+            </li>
+            <li class="nav-item">
+                {{#if user.isCompany}}
+                <a href="/company/offers" class="navbar-brand">
+                    <img src="/images/CurroAppLogoSolo.png" width="50px" />
+                </a>
+                {{else}}
+
+                <a href="/offer/feed" class="navbar-brand">
+                    <img src="/images/CurroAppLogoSolo.png" width="50px" />
+                </a>
+                {{/if}}
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/company/offers">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-card-list" viewBox="0 0 16 16">
+                        <path
+                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                        <path
+                            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                    </svg>
+                </a>
+            </li>
+
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/offer/feed">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-card-list" viewBox="0 0 16 16">
+                        <path
+                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                        <path
+                            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                    </svg>
+                </a>
+            </li>
+            <li class="nav-item">
+                {{#if user.isCompany}}
+                <a href="/company/offers" class="navbar-brand">
+                    <img src="/images/CurroAppLogoSolo.png" width="50px" />
+                </a>
+                {{else}}
+
+                <a href="/offer/feed" class="navbar-brand">
+                    <img src="/images/CurroAppLogoSolo.png" width="50px" />
+                </a>
+                {{/if}}
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/favorites">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-heart" viewBox="0 0 16 16">
+                        <path
+                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                    </svg>
+                </a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+                <a class="nav-link" href="/user/profile">
+                    <i class="fa fa-user"></i>
+                </a>
+            </li>
+        </ul>
     </div>
-</nav>
+</div>
