@@ -52,9 +52,68 @@
             {{offer.description }}
         </p>
     </div>
+
     <div class="applyButton">
-        <a class="btn-primary">
-            Aplicar a esta oferta
-        </a>
+        {{#if enrolled }}
+        {{#if enrolled.estado}}
+        <button class=" btn btn-danger w-full" onclick="deny('{{offer._id}}')" id="deny">
+            Desinscribirme de la oferta
+        </button>
+        {{else}}
+        <button class=" btn btn-info w-full disabled" id="deny" data-id="{{offer._id}}">
+            Ya te has inscrito a esta oferta
+        </button>
+        {{/if}}
+
+
+        {{else}}
+        <button class=" btn btn-success w-full" onclick="apply('{{offer._id}}')" id="apply">
+            Inscribirme en esta Oferta
+        </button>
+
+        {{/if}}
     </div>
 </main>
+
+<script>
+
+    function apply(id) {
+        axios.post("/offer/apply", {
+            offer: id
+        }).then((response) => {
+            if (response.status === 200) {
+                Swal.fire(
+                    'Aplicado!',
+                    'Has Aplicado a la oferta correctamente',
+                    'success'
+                ).then(() => {
+                    window.location.href = "/offer/detail/" + id;
+                })
+            } else {
+                alert("No se ha podido aplicar a esta oferta");
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    function deny(id) {
+        axios.post("/offer/deny", {
+            offer: id
+        }).then((response) => {
+            if (response.status === 200) {
+                Swal.fire(
+                    'Aplicado!',
+                    'Te has desinscrito de la oferta correctamente',
+                    'success'
+                ).then(() => {
+                    window.location.href = "/offer/detail/" + id;
+                })
+            } else {
+                alert("No se ha podido desinscribir a esta oferta");
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+</script>

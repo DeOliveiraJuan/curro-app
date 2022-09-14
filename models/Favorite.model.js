@@ -11,6 +11,10 @@ const favoriteSchema = new mongoose.Schema({
         ref: 'CompanyOffer',
         required: [true, 'La Oferta es necesaria']
     },
+    date: {
+        type: Date,
+        default: Date.now()
+    }
 })
 
 const Favorite = mongoose.model('Favorite', favoriteSchema);
