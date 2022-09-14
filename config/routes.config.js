@@ -31,6 +31,7 @@ router.get('/logout', authMiddlewares.isAuthenticated, authController.logout);
 //User routes
 router.get('/user/profile', authMiddlewares.isAuthenticated, usersController.userComplete);
 router.post('/user/profile', authMiddlewares.isAuthenticated, usersController.doRegisterComplete);
+router.get('/user/publicprofile', authMiddlewares.isAuthenticated, usersController.publicProfile);
 
 //User education routes
 router.get('/user/education', authMiddlewares.isAuthenticated, educationController.educationProfile);
