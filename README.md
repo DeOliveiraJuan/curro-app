@@ -1,0 +1,9 @@
+Introducing CurroApp, a mobile-only job hunting app created by my friend Julian Ossorio and by myself. Built using HBS, JavaScript, and Bootstrap for the frontend, CurroApp is designed to make the job search process as easy and efficient as possible. With a user-friendly interface and intuitive navigation, job seekers can quickly browse through a variety of job listings, save their favorite listings for later, and even apply directly through the app. Whether you're a recent graduate or a seasoned professional, JobHunt is the perfect tool to help you find your next dream job. Try it out today!
+
+But CurroApp isn't just for job seekers. Restaurant owners and managers will find our app particularly useful, as they can easily post job offers with our special price packages. This makes it easy for them to find the right employees for their business, and it's cost-effective too. Try it out today and experience the difference CurroApp can make for you, whether you're a job seeker or a business owner looking to hire.
+
+<img width="370" alt="Screenshot 2023-01-24 at 18 24 22" src="https://user-images.githubusercontent.com/105168676/214367034-2366dfb9-af47-4c09-8477-85829ee59788.png">
+<img width="370" alt="Screenshot 2023-01-24 at 18 24 41" src="https://user-images.githubusercontent.com/105168676/214367084-c8ae9e69-6b3e-40ec-b444-23b1646586aa.png">
+<img width="369" alt="Screenshot 2023-01-24 at 18 24 31" src="https://user-images.githubusercontent.com/105168676/214367113-98c06153-964c-42b9-b002-545fd7080cf9.png">
+<img width="367" alt="Screenshot 2023-01-24 at 18 24 56" src="https://user-images.githubusercontent.com/105168676/214367137-2c7fd3ee-6404-4015-b2ed-13d667ca7db7.png">
+<img width="367" alt="Screenshot 2023-01-24 at 18 25 32" src="https://user-images.githubusercontent.com/105168676/214367160-f61b151c-f9af-47d7-81a1-825072d56cd2.png">
